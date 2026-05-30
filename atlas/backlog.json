@@ -1,21 +1,10 @@
 {
   "generated_at": "2026-05-29T00:00:00Z",
-  "task_count": 3,
+  "task_count": 2,
   "modules": [
     { "id": "M1", "name": "Frontend", "phase_raw": "Phase 1" }
   ],
   "stories": [
-    {
-      "id": "S1",
-      "title": "App scaffold (Todos + About)",
-      "module": "M1",
-      "phase": 1,
-      "status": "merged",
-      "state": "merged",
-      "acceptance": ["Two pages: Todos and About", "Nav links switch between them"],
-      "depends_on": [],
-      "ui": false
-    },
     {
       "id": "S2",
       "title": "Priority badges on todo items",
@@ -43,15 +32,6 @@
     }
   ],
   "tasks": [
-    {
-      "id": "T1",
-      "story_id": "S1",
-      "title": "Scaffold Vite + React app",
-      "module": "M1",
-      "phase": 1,
-      "status": "merged",
-      "state": "merged"
-    },
     {
       "id": "T2",
       "story_id": "S2",
