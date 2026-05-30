@@ -1,0 +1,25 @@
+{
+  "signoffs": {
+    "S1": {
+      "decision": "approved",
+      "decided_by": "1a6d1313-6407-4041-b461-037dfb7cea3f",
+      "decided_at": "2026-05-30T04:42:04.282450+00:00",
+      "all_pass": true,
+      "criteria": [
+        {
+          "key": "dc94e82878ead1ef",
+          "verdict": "pass"
+        },
+        {
+          "key": "9c8c80b4ae610463",
+          "verdict": "pass"
+        },
+        {
+          "key": "73a289e31c3188fb",
+          "verdict": "pass"
+        }
+      ]
+    }
+  },
+  "generated_at": "2026-05-30T04:42:04.550277+00:00"
+}
