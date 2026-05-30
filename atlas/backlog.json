@@ -1,8 +1,12 @@
 {
-  "generated_at": "2026-05-29T00:00:00Z",
+  "generated_at": "2026-05-30T04:20:42.960Z",
   "task_count": 3,
   "modules": [
-    { "id": "M1", "name": "Frontend", "phase_raw": "Phase 1" }
+    {
+      "id": "M1",
+      "name": "Frontend",
+      "phase_raw": "Phase 1"
+    }
   ],
   "stories": [
     {
@@ -31,7 +35,9 @@
         "Each todo shows a colored priority badge (high/medium/low)",
         "The badge is visible on the Home (Todos) page"
       ],
-      "depends_on": ["S1"],
+      "depends_on": [
+        "S1"
+      ],
       "ui": true
     },
     {
@@ -41,8 +47,12 @@
       "phase": 1,
       "status": "pending",
       "state": "queued",
-      "acceptance": ["A footer shows the app version on every page"],
-      "depends_on": ["S2"],
+      "acceptance": [
+        "A footer shows the app version on every page"
+      ],
+      "depends_on": [
+        "S2"
+      ],
       "ui": true
     }
   ],
@@ -64,7 +74,9 @@
       "phase": 1,
       "status": "pending",
       "state": "queued",
-      "depends_on": ["S1"]
+      "depends_on": [
+        "S1"
+      ]
     },
     {
       "id": "T3",
@@ -74,7 +86,9 @@
       "phase": 1,
       "status": "pending",
       "state": "queued",
-      "depends_on": ["S2"]
+      "depends_on": [
+        "S2"
+      ]
     }
   ]
 }
