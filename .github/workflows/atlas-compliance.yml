@@ -1,0 +1,32 @@
+name: Atlas Compliance
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+concurrency:
+  group: atlas-compliance-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Enforces every PR references a known story / claim / task id, and
+      # leaves a comment with the matched story's acceptance criteria + KB
+      # articles. Exits non-zero on no match so this can be a required check.
+      - name: Verify Atlas reference + comment with context
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER:    ${{ github.event.pull_request.number }}
+          PR_TITLE:     ${{ github.event.pull_request.title }}
+          PR_BRANCH:    ${{ github.event.pull_request.head.ref }}
+        run: node scripts/atlas-compliance.mjs
