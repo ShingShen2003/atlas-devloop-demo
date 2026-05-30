@@ -4,10 +4,22 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
     "atlas:seed": "node scripts/atlas-seed.mjs",
     "atlas:stats": "node scripts/atlas-stats.mjs",
     "atlas:kb": "node scripts/atlas-kb.mjs",
     "atlas": "node scripts/atlas-stats.mjs && node scripts/atlas-kb.mjs",
     "atlas:validate": "node scripts/validate-config.mjs atlas/atlas.config.json && node scripts/validate-backlog.mjs atlas/backlog.json atlas/backlog.schema.json && node scripts/validate-feedback.mjs atlas/feedback.json atlas/feedback.schema.json"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.8"
   }
 }
