@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T04:40:11.534Z",
+  "generated_at": "2026-05-30T04:41:15.863Z",
   "task_count": 3,
   "modules": [
     {
@@ -14,8 +14,8 @@
       "title": "Scaffold the Vite + React app (Todos + About)",
       "module": "M1",
       "phase": 1,
-      "status": "in_progress",
-      "state": "claimed",
+      "status": "merged",
+      "state": "merged",
       "acceptance": [
         "`npm run build` succeeds",
         "Two pages exist: Todos and About",
@@ -24,9 +24,10 @@
       "depends_on": [],
       "ui": true,
       "pr_number": 2,
+      "merged_at": "2026-05-30T04:41:04Z",
       "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/2",
       "claimed_by": "ShingShen2003",
-      "worktree_branch": "feat/S1-scaffold"
+      "actual_ai_hours": 0.04
     },
     {
       "id": "S2",
@@ -67,9 +68,10 @@
       "title": "Scaffold Vite + React app",
       "module": "M1",
       "phase": 1,
-      "status": "in_progress",
-      "state": "claimed",
+      "status": "merged",
+      "state": "merged",
       "pr_number": 2,
+      "merged_at": "2026-05-30T04:41:04Z",
       "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/2",
       "claimed_by": "ShingShen2003"
     },
