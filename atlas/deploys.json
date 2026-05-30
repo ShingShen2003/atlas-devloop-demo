@@ -1,3 +1,4 @@
 {
-  "S1": { "deployed_at": "2026-05-30T04:45:00Z", "deploy_url": "http://localhost:4173" }
+  "S1": { "deployed_at": "2026-05-30T04:45:00Z", "deploy_url": "http://localhost:4173" },
+  "S2": { "deployed_at": "2026-05-30T04:55:00Z", "deploy_url": "http://localhost:4173" }
 }
