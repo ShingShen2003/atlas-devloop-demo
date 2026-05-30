@@ -1,0 +1,7 @@
+{
+  "generated_at": "2026-05-30T06:00:00Z",
+  "previews": {
+    "S1": { "deploy_url": "http://localhost:5180", "paths": ["/", "/about"], "shots": [] },
+    "S2": { "deploy_url": "http://localhost:5180", "paths": ["/"], "shots": [ { "path": "/", "label": "Home (built, with badges)", "file": "atlas/previews/S2/home.png" } ] }
+  }
+}
