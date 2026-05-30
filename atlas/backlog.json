@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T04:45:56.549Z",
+  "generated_at": "2026-05-30T04:49:51.460Z",
   "task_count": 3,
   "modules": [
     {
@@ -15,7 +15,7 @@
       "module": "M1",
       "phase": 1,
       "status": "merged",
-      "state": "verified",
+      "state": "merged",
       "acceptance": [
         "`npm run build` succeeds",
         "Two pages exist: Todos and About",
@@ -34,8 +34,8 @@
       "title": "Priority badges on todo items",
       "module": "M1",
       "phase": 1,
-      "status": "pending",
-      "state": "queued",
+      "status": "in_progress",
+      "state": "claimed",
       "acceptance": [
         "Each todo shows a colored priority badge (high/medium/low)",
         "The badge is visible on the Home (Todos) page"
@@ -43,7 +43,11 @@
       "depends_on": [
         "S1"
       ],
-      "ui": true
+      "ui": true,
+      "pr_number": 3,
+      "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/3",
+      "claimed_by": "ShingShen2003",
+      "worktree_branch": "feat/S2-badges"
     },
     {
       "id": "S3",
@@ -81,11 +85,14 @@
       "title": "Add priority field + Badge component",
       "module": "M1",
       "phase": 1,
-      "status": "pending",
-      "state": "queued",
+      "status": "in_progress",
+      "state": "claimed",
       "depends_on": [
         "S1"
-      ]
+      ],
+      "pr_number": 3,
+      "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/3",
+      "claimed_by": "ShingShen2003"
     },
     {
       "id": "T3",
