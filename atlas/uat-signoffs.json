@@ -2,8 +2,8 @@
   "signoffs": {
     "S1": {
       "decision": "approved",
-      "decided_by": "1a6d1313-6407-4041-b461-037dfb7cea3f",
-      "decided_at": "2026-05-30T04:42:04.282450+00:00",
+      "decided_by": "shingshen@pisteyo.com",
+      "decided_at": "2026-05-30T04:45:01.310479+00:00",
       "all_pass": true,
       "criteria": [
         {
@@ -21,5 +21,5 @@
       ]
     }
   },
-  "generated_at": "2026-05-30T04:42:04.550277+00:00"
+  "generated_at": "2026-05-30T04:45:01.585191+00:00"
 }
