@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-05-29T00:00:00Z",
+  "task_count": 3,
+  "modules": [
+    { "id": "M1", "name": "Frontend", "phase_raw": "Phase 1" }
+  ],
+  "stories": [
+    {
+      "id": "S1",
+      "title": "App scaffold (Todos + About)",
+      "module": "M1",
+      "phase": 1,
+      "status": "merged",
+      "state": "merged",
+      "acceptance": ["Two pages: Todos and About", "Nav links switch between them"],
+      "depends_on": [],
+      "ui": false
+    },
+    {
+      "id": "S2",
+      "title": "Priority badges on todo items",
+      "module": "M1",
+      "phase": 1,
+      "status": "pending",
+      "state": "queued",
+      "acceptance": [
+        "Each todo shows a colored priority badge (high/medium/low)",
+        "The badge is visible on the Home (Todos) page"
+      ],
+      "depends_on": [],
+      "ui": true
+    },
+    {
+      "id": "S3",
+      "title": "Footer with app version",
+      "module": "M1",
+      "phase": 1,
+      "status": "pending",
+      "state": "queued",
+      "acceptance": ["A footer shows the app version on every page"],
+      "depends_on": ["S2"],
+      "ui": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T1",
+      "story_id": "S1",
+      "title": "Scaffold Vite + React app",
+      "module": "M1",
+      "phase": 1,
+      "status": "merged",
+      "state": "merged"
+    },
+    {
+      "id": "T2",
+      "story_id": "S2",
+      "title": "Add priority field + Badge component",
+      "module": "M1",
+      "phase": 1,
+      "status": "pending",
+      "state": "queued"
+    },
+    {
+      "id": "T3",
+      "story_id": "S3",
+      "title": "Add Footer component with version",
+      "module": "M1",
+      "phase": 1,
+      "status": "pending",
+      "state": "queued",
+      "depends_on": ["S2"]
+    }
+  ]
+}

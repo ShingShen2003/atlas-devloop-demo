@@ -1,0 +1,121 @@
+name: Atlas Reconcile
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+  push:
+    # main: canonical content + reconciler trigger after merges
+    # feat/** + fix/**: branch overlay (v1.7.0+) — within ~30s of a dev
+    # pushing `feat/SX.Y-foo`, the reconciler flips the matched story to
+    # state=claimed even without a draft PR.
+    branches: [main, 'feat/**', 'fix/**']
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: read
+concurrency:
+  group: atlas-reconcile
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # Always check out `main` (or whichever code branch we are tracking)
+          # so the scripts AND git history come from the same place. Stats
+          # counts main's commits; reconciler runs main's latest matcher.
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Resolve the sidecar/direct mode from atlas.config.json#/github.stateBranch.
+      - name: Resolve state branch
+        id: resolve
+        run: |
+          STATE_BRANCH=$(node -e '
+            try {
+              const c = require("./atlas/atlas.config.json");
+              process.stdout.write(c.github?.stateBranch ?? "");
+            } catch { process.stdout.write(""); }
+          ')
+          if [ -z "$STATE_BRANCH" ]; then
+            STATE_BRANCH="${GITHUB_REF_NAME}"
+            echo "mode=direct" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=sidecar" >> "$GITHUB_OUTPUT"
+          fi
+          echo "branch=$STATE_BRANCH" >> "$GITHUB_OUTPUT"
+          echo "Resolved: branch=$STATE_BRANCH mode=$(grep mode $GITHUB_OUTPUT | cut -d= -f2)"
+
+      # Sidecar mode: ensure atlas-state exists on origin, then attach it as
+      # a sibling worktree at ../state. We keep the main worktree at $PWD so
+      # main's scripts + git history stay accessible.
+      - name: Set up atlas-state worktree (sidecar mode)
+        if: steps.resolve.outputs.mode == 'sidecar'
+        run: |
+          set -euo pipefail
+          STATE_BRANCH="${{ steps.resolve.outputs.branch }}"
+          git config user.name "atlas-bot"
+          git config user.email "atlas-bot@users.noreply.github.com"
+          if ! git ls-remote --exit-code --heads origin "$STATE_BRANCH" >/dev/null 2>&1; then
+            echo "Creating $STATE_BRANCH on origin from main HEAD"
+            git push origin "HEAD:refs/heads/$STATE_BRANCH"
+          fi
+          git fetch origin "$STATE_BRANCH":"$STATE_BRANCH"
+          git worktree add ../state "$STATE_BRANCH"
+
+      # Reconciler runs against the LIVE data files:
+      #   - sidecar mode: in ../state (the atlas-state worktree)
+      #   - direct mode:  in . (main's worktree)
+      # In sidecar mode we copy main's atlas.config.json into ../state so the
+      # reconciler reads the latest config (e.g. github.repo) even if
+      # atlas-state lags behind main.
+      - name: Reconcile task status from PRs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ "${{ steps.resolve.outputs.mode }}" = "sidecar" ]; then
+            cp atlas/atlas.config.json ../state/atlas/atlas.config.json
+            # Mirror feedback.json to atlas-state so the hub can read it there
+            if [ -f atlas/feedback.json ]; then
+              cp atlas/feedback.json ../state/atlas/feedback.json
+            fi
+            cd ../state && node "$GITHUB_WORKSPACE/scripts/atlas-reconcile.mjs"
+          else
+            node scripts/atlas-reconcile.mjs
+          fi
+
+      # Stats counts MAIN's git history. Always run from main's worktree, then
+      # in sidecar mode copy the result over to ../state for the commit step.
+      - name: Refresh engineering stats
+        run: |
+          set -euo pipefail
+          node scripts/atlas-stats.mjs
+          if [ "${{ steps.resolve.outputs.mode }}" = "sidecar" ]; then
+            cp atlas/engineering-stats.json ../state/atlas/engineering-stats.json
+          fi
+
+      # Commit + push only the data files. The atlas.config.json we overlaid
+      # in sidecar mode is left unstaged so it never gets re-committed to
+      # atlas-state (avoids drift between main's config and the sidecar's).
+      - name: Commit + push updated atlas data
+        run: |
+          set -euo pipefail
+          if [ "${{ steps.resolve.outputs.mode }}" = "sidecar" ]; then
+            cd ../state
+          fi
+          git config user.name "atlas-bot"
+          git config user.email "atlas-bot@users.noreply.github.com"
+          git add atlas/backlog.json atlas/engineering-stats.json atlas/atlas.config.json atlas/feedback.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No Atlas changes."
+          else
+            git commit -m "chore(atlas): reconcile task status + stats [skip ci]"
+            git push origin "HEAD:${{ steps.resolve.outputs.branch }}"
+          fi

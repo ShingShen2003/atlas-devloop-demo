@@ -6,7 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "atlas:seed": "node scripts/atlas-seed.mjs",
+    "atlas:stats": "node scripts/atlas-stats.mjs",
+    "atlas:kb": "node scripts/atlas-kb.mjs",
+    "atlas": "node scripts/atlas-stats.mjs && node scripts/atlas-kb.mjs",
+    "atlas:validate": "node scripts/validate-config.mjs atlas/atlas.config.json && node scripts/validate-backlog.mjs atlas/backlog.json atlas/backlog.schema.json && node scripts/validate-feedback.mjs atlas/feedback.json atlas/feedback.schema.json"
   },
   "dependencies": {
     "react": "^18.3.1",
