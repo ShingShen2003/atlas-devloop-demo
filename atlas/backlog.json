@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T04:55:22.393Z",
+  "generated_at": "2026-05-30T04:56:10.600Z",
   "task_count": 3,
   "modules": [
     {
@@ -34,8 +34,8 @@
       "title": "Priority badges on todo items",
       "module": "M1",
       "phase": 1,
-      "status": "in_progress",
-      "state": "claimed",
+      "status": "merged",
+      "state": "merged",
       "acceptance": [
         "Each todo shows a colored priority badge (high/medium/low)",
         "The badge is visible on the Home (Todos) page"
@@ -45,9 +45,10 @@
       ],
       "ui": true,
       "pr_number": 3,
+      "merged_at": "2026-05-30T04:55:59Z",
       "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/3",
       "claimed_by": "ShingShen2003",
-      "worktree_branch": "feat/S2-badges"
+      "actual_ai_hours": 0.1
     },
     {
       "id": "S3",
@@ -85,12 +86,13 @@
       "title": "Add priority field + Badge component",
       "module": "M1",
       "phase": 1,
-      "status": "in_progress",
-      "state": "claimed",
+      "status": "merged",
+      "state": "merged",
       "depends_on": [
         "S1"
       ],
       "pr_number": 3,
+      "merged_at": "2026-05-30T04:55:59Z",
       "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/3",
       "claimed_by": "ShingShen2003"
     },
