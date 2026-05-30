@@ -28,11 +28,25 @@
   padding: 0;
 }
 .todos li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   padding: 0.5rem 0.75rem;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
   margin-bottom: 0.5rem;
   cursor: pointer;
+}
+.badge {
+  flex: none;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 .todos li.done {
   text-decoration: line-through;
