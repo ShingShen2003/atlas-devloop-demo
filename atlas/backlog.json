@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T23:13:14.681Z",
+  "generated_at": "2026-05-31T23:43:58.951Z",
   "task_count": 3,
   "modules": [
     {
@@ -55,8 +55,8 @@
       "title": "Footer with app version",
       "module": "M1",
       "phase": 1,
-      "status": "in_progress",
-      "state": "pr_open",
+      "status": "merged",
+      "state": "in_review",
       "acceptance": [
         "A footer shows the app version on every page"
       ],
@@ -66,7 +66,13 @@
       "ui": true,
       "pr_number": 4,
       "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/4",
-      "claimed_by": "ShingShen2003"
+      "claimed_by": "ShingShen2003",
+      "merged_at": "2026-05-31T23:43:39Z",
+      "actual_ai_hours": 1.28,
+      "needs_human_review": {
+        "kind": "qa",
+        "since": "2026-05-31T23:43:58.950Z"
+      }
     }
   ],
   "tasks": [
@@ -105,14 +111,15 @@
       "title": "Add Footer component with version",
       "module": "M1",
       "phase": 1,
-      "status": "in_progress",
-      "state": "pr_open",
+      "status": "merged",
+      "state": "merged",
       "depends_on": [
         "S2"
       ],
       "pr_number": 4,
       "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/4",
-      "claimed_by": "ShingShen2003"
+      "claimed_by": "ShingShen2003",
+      "merged_at": "2026-05-31T23:43:39Z"
     }
   ]
 }
