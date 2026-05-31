@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T22:41:40.520Z",
+  "generated_at": "2026-05-31T23:13:14.681Z",
   "task_count": 3,
   "modules": [
     {
@@ -66,11 +66,7 @@
       "ui": true,
       "pr_number": 4,
       "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/4",
-      "claimed_by": "ShingShen2003",
-      "needs_human_review": {
-        "kind": "code_security",
-        "since": "2026-05-31T22:27:00Z"
-      }
+      "claimed_by": "ShingShen2003"
     }
   ],
   "tasks": [
@@ -116,11 +112,7 @@
       ],
       "pr_number": 4,
       "pr_url": "https://github.com/ShingShen2003/atlas-devloop-demo/pull/4",
-      "claimed_by": "ShingShen2003",
-      "needs_human_review": {
-        "kind": "code_security",
-        "since": "2026-05-31T22:27:00Z"
-      }
+      "claimed_by": "ShingShen2003"
     }
   ]
 }
