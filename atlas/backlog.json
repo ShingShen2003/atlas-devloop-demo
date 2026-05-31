@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T22:25:32.598Z",
+  "generated_at": "2026-05-31T22:26:48.532Z",
   "task_count": 3,
   "modules": [
     {
@@ -55,15 +55,17 @@
       "title": "Footer with app version",
       "module": "M1",
       "phase": 1,
-      "status": "pending",
-      "state": "queued",
+      "status": "in_progress",
+      "state": "working",
       "acceptance": [
         "A footer shows the app version on every page"
       ],
       "depends_on": [
         "S2"
       ],
-      "ui": true
+      "ui": true,
+      "claimed_by": "ShingShen2003",
+      "worktree_branch": "feat/S3-footer"
     }
   ],
   "tasks": [
@@ -102,11 +104,13 @@
       "title": "Add Footer component with version",
       "module": "M1",
       "phase": 1,
-      "status": "pending",
-      "state": "queued",
+      "status": "in_progress",
+      "state": "working",
       "depends_on": [
         "S2"
-      ]
+      ],
+      "claimed_by": "ShingShen2003",
+      "worktree_branch": "feat/S3-footer"
     }
   ]
 }
