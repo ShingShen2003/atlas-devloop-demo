@@ -35,7 +35,19 @@
           "verdict": "pass"
         }
       ]
+    },
+    "S3": {
+      "decision": "approved",
+      "decided_by": "shingshen@pisteyo.com",
+      "decided_at": "2026-05-31T23:44:19.665382+00:00",
+      "all_pass": true,
+      "criteria": [
+        {
+          "key": "3843bf7c8505cfb7",
+          "verdict": "pass"
+        }
+      ]
     }
   },
-  "generated_at": "2026-05-31T22:45:46.135948+00:00"
+  "generated_at": "2026-05-31T23:44:19.969150+00:00"
 }
