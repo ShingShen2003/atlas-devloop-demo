@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T22:26:48.532Z",
+  "generated_at": "2026-05-31T22:26:53.512Z",
   "task_count": 3,
   "modules": [
     {
@@ -15,7 +15,7 @@
       "module": "M1",
       "phase": 1,
       "status": "merged",
-      "state": "verified",
+      "state": "merged",
       "acceptance": [
         "`npm run build` succeeds",
         "Two pages exist: Todos and About",
@@ -35,7 +35,7 @@
       "module": "M1",
       "phase": 1,
       "status": "merged",
-      "state": "verified",
+      "state": "merged",
       "acceptance": [
         "Each todo shows a colored priority badge (high/medium/low)",
         "The badge is visible on the Home (Todos) page"
@@ -56,7 +56,7 @@
       "module": "M1",
       "phase": 1,
       "status": "in_progress",
-      "state": "working",
+      "state": "claimed",
       "acceptance": [
         "A footer shows the app version on every page"
       ],
@@ -105,7 +105,7 @@
       "module": "M1",
       "phase": 1,
       "status": "in_progress",
-      "state": "working",
+      "state": "claimed",
       "depends_on": [
         "S2"
       ],
