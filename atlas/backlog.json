@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T22:29:14.853Z",
+  "generated_at": "2026-05-31T22:41:40.520Z",
   "task_count": 3,
   "modules": [
     {
@@ -69,8 +69,7 @@
       "claimed_by": "ShingShen2003",
       "needs_human_review": {
         "kind": "code_security",
-        "since": "2026-05-31T22:27:00Z",
-        "by": null
+        "since": "2026-05-31T22:27:00Z"
       }
     }
   ],
@@ -120,8 +119,7 @@
       "claimed_by": "ShingShen2003",
       "needs_human_review": {
         "kind": "code_security",
-        "since": "2026-05-31T22:27:00Z",
-        "by": null
+        "since": "2026-05-31T22:27:00Z"
       }
     }
   ]
